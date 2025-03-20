@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUp() {
+  const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -17,6 +18,11 @@ export default function SignUp() {
     e.preventDefault();
     setError("");
 
+    // Validate inputs
+    if (!fullName.trim()) {
+      return setError("Please enter your full name");
+    }
+
     // Validate password
     if (password !== confirmPassword) {
       return setError("Passwords do not match");
@@ -29,7 +35,7 @@ export default function SignUp() {
     setLoading(true);
 
     try {
-      const { data, error } = await signUp(email, password);
+      const { data, error } = await signUp(email, password, fullName);
 
       if (error) throw error;
 
@@ -92,6 +98,23 @@ export default function SignUp() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label
+                    htmlFor="fullName"
+                    className="block text-[#e0c9b1] text-sm font-medium mb-2"
+                  >
+                    Full Name
+                  </label>
+                  <input
+                    id="fullName"
+                    type="text"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    required
+                    className="w-full px-4 py-3 bg-[#2a2a35] border border-[#3a3a45] rounded-md text-[#e0c9b1] focus:outline-none focus:ring-2 focus:ring-[#e0c9b1]/30 focus:border-[#e0c9b1] transition-all duration-300"
+                    placeholder="Enter your full name"
+                  />
+                </div>
                 <div>
                   <label
                     htmlFor="email"
