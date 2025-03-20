@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const Header = () => {
@@ -35,13 +36,15 @@ const Header = () => {
             </motion.div>
           </div>
 
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.98 }}
-            className="px-5 py-2 bg-[#e0c9b1] text-[#0f0f12] rounded-lg text-sm font-inter font-semibold hover:bg-[#d4b595] transition-colors duration-300"
-          >
-            Get Started
-          </motion.button>
+          <Link to="/signup">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.98 }}
+              className="px-5 py-2 bg-[#e0c9b1] text-[#0f0f12] rounded-lg text-sm font-inter font-semibold hover:bg-[#d4b595] transition-colors duration-300"
+            >
+              Get Started
+            </motion.button>
+          </Link>
         </div>
       </header>
     </>

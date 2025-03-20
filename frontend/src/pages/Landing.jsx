@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import Features from "../components/Features";
 import Header from "../components/Header";
 import Testimonial from "../components/Testimonial";
@@ -66,13 +67,15 @@ export default function Landing() {
               variants={item}
               className="flex flex-col md:flex-row gap-4 pt-4"
             >
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="px-8 py-3 bg-[#e0c9b1] text-[#0f0f12] rounded-md font-inter font-bold hover:bg-[#d4b595] transition-colors duration-300"
-              >
-                Start Learning
-              </motion.button>
+              <Link to="/signin">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="px-8 py-3 bg-[#e0c9b1] text-[#0f0f12] rounded-md font-inter font-bold hover:bg-[#d4b595] transition-colors duration-300"
+                >
+                  Start Learning
+                </motion.button>
+              </Link>
 
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -96,7 +99,7 @@ export default function Landing() {
       <Features />
 
       <section id="testimonials-section" className="scroll-mt-13">
-        <Testimonial autoplay={true}/>
+        <Testimonial autoplay={true} />
       </section>
 
       <Footer />

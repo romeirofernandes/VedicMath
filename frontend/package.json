@@ -12,6 +12,7 @@
   "dependencies": {
     "@fontsource/bricolage-grotesque": "^5.2.6",
     "@fontsource/inter": "^5.2.5",
+    "@supabase/supabase-js": "^2.49.1",
     "@tabler/icons-react": "^3.31.0",
     "@tailwindcss/vite": "^4.0.14",
     "framer-motion": "^12.5.0",
