@@ -140,13 +140,13 @@ export default function VedicMathTutorial() {
   }, [activeTab]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#f0f0f0] to-[#e0e0e0] text-gray-900 p-6">
+    <div className="min-h-screen bg-gradient-to-br from-[#0f0f12] to-[#1a1a21] text-[#e0c9b1] p-6">
       <div className="max-w-4xl mx-auto">
         <header className="mb-8">
           <h1 className="text-3xl font-bold mb-2">
             Vedic Mathematics: Two-Digit Multiplication
           </h1>
-          <p className="text-gray-700">
+          <p className="text-[#e0c9b1]/80">
             Learn the ancient Indian technique of Urdhva Tiryagbhyam (Vertically
             and Crosswise) for rapid mental multiplication
           </p>
@@ -158,16 +158,16 @@ export default function VedicMathTutorial() {
           onValueChange={setActiveTab}
           className="mb-8"
         >
-          <TabsList className="bg-[#ffffff] border border-gray-300">
+          <TabsList className="bg-[#e0c9b1] border border-[#0f0f12]">
             <TabsTrigger
               value="learn"
-              className="data-[state=active]:bg-gray-200 data-[state=active]:text-gray-900"
+              className="data-[state=active]:bg-[#0f0f12] data-[state=active]:text-[#e0c9b1]"
             >
               Learn the Method
             </TabsTrigger>
             <TabsTrigger
               value="practice"
-              className="data-[state=active]:bg-gray-200 data-[state=active]:text-gray-900"
+              className="data-[state=active]:bg-[#0f0f12] data-[state=active]:text-[#e0c9b1]"
             >
               Practice
             </TabsTrigger>
@@ -175,35 +175,41 @@ export default function VedicMathTutorial() {
 
           <TabsContent value="learn" className="mt-6">
             <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-              <Card className="col-span-1 lg:col-span-2 bg-[#ffffff] border-gray-300">
+              <Card className="col-span-1 lg:col-span-2 bg-[#e0c9b1] border-[#0f0f12]">
                 <CardHeader>
-                  <CardTitle>The Technique</CardTitle>
-                  <CardDescription className="text-gray-700">
+                  <CardTitle className="text-[#0f0f12]">
+                    The Technique
+                  </CardTitle>
+                  <CardDescription className="text-[#0f0f12]/70">
                     Urdhva Tiryagbhyam (Vertically and Crosswise)
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
-                  <p>
+                  <p className="text-[#0f0f12]">
                     This Vedic mathematics technique breaks down multiplication
                     into simple steps:
                   </p>
 
                   <div className="space-y-3 mt-4">
                     <div className="flex items-start gap-3">
-                      <div className="bg-gray-100 rounded-full p-1.5 mt-0.5">
-                        <span className="text-xs font-bold">1</span>
+                      <div className="bg-[#0f0f12]/10 rounded-full p-1.5 mt-0.5">
+                        <span className="text-xs font-bold text-[#0f0f12]">
+                          1
+                        </span>
                       </div>
-                      <p>
+                      <p className="text-[#0f0f12]">
                         Multiply the units digits (rightmost digits) of both
                         numbers
                       </p>
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="bg-gray-100 rounded-full p-1.5 mt-0.5">
-                        <span className="text-xs font-bold">2</span>
+                      <div className="bg-[#0f0f12]/10 rounded-full p-1.5 mt-0.5">
+                        <span className="text-xs font-bold text-[#0f0f12]">
+                          2
+                        </span>
                       </div>
-                      <p>
+                      <p className="text-[#0f0f12]">
                         Cross multiply and add: (first number's tens × second
                         number's units) + (first number's units × second
                         number's tens)
@@ -211,17 +217,23 @@ export default function VedicMathTutorial() {
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="bg-gray-100 rounded-full p-1.5 mt-0.5">
-                        <span className="text-xs font-bold">3</span>
+                      <div className="bg-[#0f0f12]/10 rounded-full p-1.5 mt-0.5">
+                        <span className="text-xs font-bold text-[#0f0f12]">
+                          3
+                        </span>
                       </div>
-                      <p>Multiply the tens digits of both numbers</p>
+                      <p className="text-[#0f0f12]">
+                        Multiply the tens digits of both numbers
+                      </p>
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="bg-gray-100 rounded-full p-1.5 mt-0.5">
-                        <span className="text-xs font-bold">4</span>
+                      <div className="bg-[#0f0f12]/10 rounded-full p-1.5 mt-0.5">
+                        <span className="text-xs font-bold text-[#0f0f12]">
+                          4
+                        </span>
                       </div>
-                      <p>
+                      <p className="text-[#0f0f12]">
                         Arrange the results with proper place values, carrying
                         over when needed
                       </p>
@@ -230,10 +242,12 @@ export default function VedicMathTutorial() {
                 </CardContent>
               </Card>
 
-              <Card className="col-span-1 lg:col-span-3 bg-[#ffffff] border-gray-300">
+              <Card className="col-span-1 lg:col-span-3 bg-[#e0c9b1] border-[#0f0f12]">
                 <CardHeader>
-                  <CardTitle>Interactive Example</CardTitle>
-                  <CardDescription className="text-gray-700">
+                  <CardTitle className="text-[#0f0f12]">
+                    Interactive Example
+                  </CardTitle>
+                  <CardDescription className="text-[#0f0f12]/70">
                     Follow along with the steps
                   </CardDescription>
                 </CardHeader>
@@ -241,38 +255,48 @@ export default function VedicMathTutorial() {
                   <div className="flex justify-center mb-6">
                     <div className="text-center">
                       <div className="flex justify-center items-center gap-4 text-3xl font-bold mb-4">
-                        <span className="bg-gray-100 p-3 rounded-lg">
+                        <span className="bg-[#0f0f12]/10 p-3 rounded-lg text-[#0f0f12]">
                           {firstNumber}
                         </span>
-                        <span>×</span>
-                        <span className="bg-gray-100 p-3 rounded-lg">
+                        <span className="text-[#0f0f12]">×</span>
+                        <span className="bg-[#0f0f12]/10 p-3 rounded-lg text-[#0f0f12]">
                           {secondNumber}
                         </span>
                       </div>
 
                       <Progress
                         value={(currentStep / 4) * 100}
-                        className="h-1 mb-4 bg-gray-200"
+                        className="h-1 mb-4 bg-[#0f0f12]/10"
                       />
 
-                      <div className="min-h-[200px] bg-gray-100 rounded-lg p-4 mb-4">
+                      <div className="min-h-[200px] bg-[#0f0f12] rounded-lg p-4 mb-4">
                         {currentStep === 0 && (
                           <div className="space-y-4">
-                            <p>Let's break down the numbers:</p>
+                            <p className="text-[#e0c9b1]">
+                              Let's break down the numbers:
+                            </p>
                             <div className="grid grid-cols-2 gap-4">
-                              <div className="bg-white p-3 rounded-lg">
-                                <p className="text-sm mb-1">
+                              <div className="bg-[#1a1a21] p-3 rounded-lg">
+                                <p className="text-sm mb-1 text-[#e0c9b1]">
                                   First Number: {firstNumber}
                                 </p>
-                                <p>Tens: {steps.a}</p>
-                                <p>Units: {steps.b}</p>
+                                <p className="text-[#e0c9b1]">
+                                  Tens: {steps.a}
+                                </p>
+                                <p className="text-[#e0c9b1]">
+                                  Units: {steps.b}
+                                </p>
                               </div>
-                              <div className="bg-white p-3 rounded-lg">
-                                <p className="text-sm mb-1">
+                              <div className="bg-[#1a1a21] p-3 rounded-lg">
+                                <p className="text-sm mb-1 text-[#e0c9b1]">
                                   Second Number: {secondNumber}
                                 </p>
-                                <p>Tens: {steps.c}</p>
-                                <p>Units: {steps.d}</p>
+                                <p className="text-[#e0c9b1]">
+                                  Tens: {steps.c}
+                                </p>
+                                <p className="text-[#e0c9b1]">
+                                  Units: {steps.d}
+                                </p>
                               </div>
                             </div>
                           </div>
@@ -280,23 +304,23 @@ export default function VedicMathTutorial() {
 
                         {currentStep === 1 && (
                           <div className="space-y-4">
-                            <p className="mb-2">
+                            <p className="mb-2 text-[#e0c9b1]">
                               Step 1: Multiply the units digits
                             </p>
                             <div className="flex justify-center items-center gap-2 text-xl">
-                              <span className="bg-gray-200 p-2 rounded">
+                              <span className="bg-[#1a1a21] p-2 rounded text-[#e0c9b1]">
                                 {steps.b}
                               </span>
-                              <span>×</span>
-                              <span className="bg-gray-200 p-2 rounded">
+                              <span className="text-[#e0c9b1]">×</span>
+                              <span className="bg-[#1a1a21] p-2 rounded text-[#e0c9b1]">
                                 {steps.d}
                               </span>
-                              <span>=</span>
-                              <span className="bg-gray-300 p-2 rounded font-bold">
+                              <span className="text-[#e0c9b1]">=</span>
+                              <span className="bg-[#1a1a21] p-2 rounded font-bold text-[#e0c9b1]">
                                 {steps.step1}
                               </span>
                             </div>
-                            <p className="mt-4">
+                            <p className="mt-4 text-[#e0c9b1]">
                               This gives us the units digit of our answer:{" "}
                               <span className="font-bold">
                                 {steps.step1Units}
@@ -317,55 +341,59 @@ export default function VedicMathTutorial() {
 
                         {currentStep === 2 && (
                           <div className="space-y-4">
-                            <p className="mb-2">
+                            <p className="mb-2 text-[#e0c9b1]">
                               Step 2: Cross multiply and add
                             </p>
                             <div className="flex flex-col items-center gap-2">
                               <div className="flex items-center gap-2 text-xl">
-                                <span className="bg-gray-200 p-2 rounded">
+                                <span className="bg-[#1a1a21] p-2 rounded text-[#e0c9b1]">
                                   {steps.a}
                                 </span>
-                                <span>×</span>
-                                <span className="bg-gray-200 p-2 rounded">
+                                <span className="text-[#e0c9b1]">×</span>
+                                <span className="bg-[#1a1a21] p-2 rounded text-[#e0c9b1]">
                                   {steps.d}
                                 </span>
-                                <span>=</span>
-                                <span className="p-2 rounded">
+                                <span className="text-[#e0c9b1]">=</span>
+                                <span className="p-2 rounded text-[#e0c9b1]">
                                   {steps.a * steps.d}
                                 </span>
                               </div>
                               <div className="flex items-center gap-2 text-xl">
-                                <span className="bg-gray-200 p-2 rounded">
+                                <span className="bg-[#1a1a21] p-2 rounded text-[#e0c9b1]">
                                   {steps.b}
                                 </span>
-                                <span>×</span>
-                                <span className="bg-gray-200 p-2 rounded">
+                                <span className="text-[#e0c9b1]">×</span>
+                                <span className="bg-[#1a1a21] p-2 rounded text-[#e0c9b1]">
                                   {steps.c}
                                 </span>
-                                <span>=</span>
-                                <span className="p-2 rounded">
+                                <span className="text-[#e0c9b1]">=</span>
+                                <span className="p-2 rounded text-[#e0c9b1]">
                                   {steps.b * steps.c}
                                 </span>
                               </div>
                               <div className="flex items-center gap-2 text-xl mt-2">
-                                <span>{steps.a * steps.d}</span>
-                                <span>+</span>
-                                <span>{steps.b * steps.c}</span>
+                                <span className="text-[#e0c9b1]">
+                                  {steps.a * steps.d}
+                                </span>
+                                <span className="text-[#e0c9b1]">+</span>
+                                <span className="text-[#e0c9b1]">
+                                  {steps.b * steps.c}
+                                </span>
                                 {steps.step1Tens > 0 && (
                                   <>
-                                    <span>+</span>
-                                    <span className="text-gray-500">
+                                    <span className="text-[#e0c9b1]">+</span>
+                                    <span className="text-[#e0c9b1]/70">
                                       (carry) {steps.step1Tens}
                                     </span>
                                   </>
                                 )}
-                                <span>=</span>
-                                <span className="bg-gray-300 p-2 rounded font-bold">
+                                <span className="text-[#e0c9b1]">=</span>
+                                <span className="bg-[#1a1a21] p-2 rounded font-bold text-[#e0c9b1]">
                                   {steps.step2WithCarry}
                                 </span>
                               </div>
                             </div>
-                            <p className="mt-4">
+                            <p className="mt-4 text-[#e0c9b1]">
                               This gives us the tens digit of our answer:{" "}
                               <span className="font-bold">
                                 {steps.step2Units}
@@ -386,31 +414,31 @@ export default function VedicMathTutorial() {
 
                         {currentStep === 3 && (
                           <div className="space-y-4">
-                            <p className="mb-2">
+                            <p className="mb-2 text-[#e0c9b1]">
                               Step 3: Multiply the tens digits
                             </p>
                             <div className="flex justify-center items-center gap-2 text-xl">
-                              <span className="bg-gray-200 p-2 rounded">
+                              <span className="bg-[#1a1a21] p-2 rounded text-[#e0c9b1]">
                                 {steps.a}
                               </span>
-                              <span>×</span>
-                              <span className="bg-gray-200 p-2 rounded">
+                              <span className="text-[#e0c9b1]">×</span>
+                              <span className="bg-[#1a1a21] p-2 rounded text-[#e0c9b1]">
                                 {steps.c}
                               </span>
                               {steps.step2Tens > 0 && (
                                 <>
-                                  <span>+</span>
-                                  <span className="text-gray-500">
+                                  <span className="text-[#e0c9b1]">+</span>
+                                  <span className="text-[#e0c9b1]/70">
                                     (carry) {steps.step2Tens}
                                   </span>
                                 </>
                               )}
-                              <span>=</span>
-                              <span className="bg-gray-300 p-2 rounded font-bold">
+                              <span className="text-[#e0c9b1]">=</span>
+                              <span className="bg-[#1a1a21] p-2 rounded font-bold text-[#e0c9b1]">
                                 {steps.step3WithCarry}
                               </span>
                             </div>
-                            <p className="mt-4">
+                            <p className="mt-4 text-[#e0c9b1]">
                               This gives us the hundreds digits of our answer:{" "}
                               <span className="font-bold">
                                 {steps.step3WithCarry}
@@ -421,34 +449,40 @@ export default function VedicMathTutorial() {
 
                         {currentStep === 4 && (
                           <div className="space-y-4">
-                            <p className="mb-2">
+                            <p className="mb-2 text-[#e0c9b1]">
                               Final Result: Combining all steps
                             </p>
                             <div className="flex flex-col items-center gap-4">
                               <div className="grid grid-cols-3 gap-2 text-center">
-                                <div className="bg-gray-300 p-2 rounded">
-                                  <p className="text-xs mb-1">Hundreds</p>
-                                  <p className="font-bold">
+                                <div className="bg-[#1a1a21] p-2 rounded">
+                                  <p className="text-xs mb-1 text-[#e0c9b1]">
+                                    Hundreds
+                                  </p>
+                                  <p className="font-bold text-[#e0c9b1]">
                                     {steps.step3WithCarry}
                                   </p>
                                 </div>
-                                <div className="bg-gray-300 p-2 rounded">
-                                  <p className="text-xs mb-1">Tens</p>
-                                  <p className="font-bold">
+                                <div className="bg-[#1a1a21] p-2 rounded">
+                                  <p className="text-xs mb-1 text-[#e0c9b1]">
+                                    Tens
+                                  </p>
+                                  <p className="font-bold text-[#e0c9b1]">
                                     {steps.step2Units}
                                   </p>
                                 </div>
-                                <div className="bg-gray-300 p-2 rounded">
-                                  <p className="text-xs mb-1">Units</p>
-                                  <p className="font-bold">
+                                <div className="bg-[#1a1a21] p-2 rounded">
+                                  <p className="text-xs mb-1 text-[#e0c9b1]">
+                                    Units
+                                  </p>
+                                  <p className="font-bold text-[#e0c9b1]">
                                     {steps.step1Units}
                                   </p>
                                 </div>
                               </div>
 
-                              <div className="text-2xl font-bold mt-2">
+                              <div className="text-2xl font-bold mt-2 text-[#e0c9b1]">
                                 {firstNumber} × {secondNumber} ={" "}
-                                <span className="text-gray-900">
+                                <span className="text-[#e0c9b1]">
                                   {steps.result}
                                 </span>
                               </div>
@@ -464,7 +498,7 @@ export default function VedicMathTutorial() {
                     variant="outline"
                     onClick={resetTutorial}
                     disabled={currentStep === 0}
-                    className="border-gray-300 text-gray-900 hover:bg-gray-200"
+                    className="border-[#0f0f12] text-[#0f0f12] hover:bg-[#0f0f12]/10"
                   >
                     Reset
                   </Button>
@@ -475,7 +509,7 @@ export default function VedicMathTutorial() {
                         ? setCurrentStep(currentStep + 1)
                         : resetTutorial()
                     }
-                    className="bg-gray-200 text-gray-900 hover:bg-gray-300"
+                    className="bg-[#0f0f12] text-[#e0c9b1] hover:bg-[#0f0f12]/90"
                   >
                     {currentStep < 4 ? (
                       <>
@@ -491,45 +525,53 @@ export default function VedicMathTutorial() {
               </Card>
             </div>
 
-            <Card className="mt-6 bg-[#ffffff] border-gray-300">
+            <Card className="mt-6 bg-[#e0c9b1] border-[#0f0f12]">
               <CardHeader>
-                <CardTitle>Visual Representation</CardTitle>
-                <CardDescription className="text-gray-700">
+                <CardTitle className="text-[#0f0f12]">
+                  Visual Representation
+                </CardTitle>
+                <CardDescription className="text-[#0f0f12]/70">
                   See how the Vedic method works visually
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
-                    <h3 className="text-lg font-semibold mb-4">
+                    <h3 className="text-lg font-semibold mb-4 text-[#0f0f12]">
                       Traditional Method
                     </h3>
-                    <div className="bg-gray-100 p-4 rounded-lg">
+                    <div className="bg-[#0f0f12] p-4 rounded-lg">
                       <div className="flex justify-end mb-2">
                         <div className="w-24 text-right">
-                          <div className="font-mono">{firstNumber}</div>
-                          <div className="font-mono">× {secondNumber}</div>
-                          <Separator className="my-1 bg-gray-300" />
+                          <div className="font-mono text-[#e0c9b1]">
+                            {firstNumber}
+                          </div>
+                          <div className="font-mono text-[#e0c9b1]">
+                            × {secondNumber}
+                          </div>
+                          <Separator className="my-1 bg-[#e0c9b1]/30" />
                           {(secondNumber % 10) * firstNumber !== 0 && (
-                            <div className="font-mono">
+                            <div className="font-mono text-[#e0c9b1]">
                               {(secondNumber % 10) * firstNumber}
                             </div>
                           )}
                           {Math.floor(secondNumber / 10) * firstNumber !==
                             0 && (
-                            <div className="font-mono">
+                            <div className="font-mono text-[#e0c9b1]">
                               {Math.floor(secondNumber / 10) * firstNumber}0
                             </div>
                           )}
                           {((secondNumber % 10) * firstNumber !== 0 ||
                             Math.floor(secondNumber / 10) * firstNumber !==
-                              0) && <Separator className="my-1 bg-gray-300" />}
-                          <div className="font-mono font-bold">
+                              0) && (
+                            <Separator className="my-1 bg-[#e0c9b1]/30" />
+                          )}
+                          <div className="font-mono font-bold text-[#e0c9b1]">
                             {firstNumber * secondNumber}
                           </div>
                         </div>
                       </div>
-                      <p className="text-sm mt-4 text-gray-700">
+                      <p className="text-sm mt-4 text-[#e0c9b1]/70">
                         The traditional method requires multiple steps of
                         multiplication and addition
                       </p>
@@ -537,27 +579,33 @@ export default function VedicMathTutorial() {
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-semibold mb-4">Vedic Method</h3>
-                    <div className="bg-gray-100 p-4 rounded-lg">
+                    <h3 className="text-lg font-semibold mb-4 text-[#0f0f12]">
+                      Vedic Method
+                    </h3>
+                    <div className="bg-[#0f0f12] p-4 rounded-lg">
                       <div className="grid grid-cols-2 gap-4 mb-4">
                         <div className="text-center">
-                          <div className="text-sm mb-1">First Number</div>
+                          <div className="text-sm mb-1 text-[#e0c9b1]">
+                            First Number
+                          </div>
                           <div className="flex justify-center gap-2">
-                            <div className="bg-gray-200 w-10 h-10 flex items-center justify-center rounded">
+                            <div className="bg-[#1a1a21] w-10 h-10 flex items-center justify-center rounded text-[#e0c9b1]">
                               {steps.a}
                             </div>
-                            <div className="bg-gray-200 w-10 h-10 flex items-center justify-center rounded">
+                            <div className="bg-[#1a1a21] w-10 h-10 flex items-center justify-center rounded text-[#e0c9b1]">
                               {steps.b}
                             </div>
                           </div>
                         </div>
                         <div className="text-center">
-                          <div className="text-sm mb-1">Second Number</div>
+                          <div className="text-sm mb-1 text-[#e0c9b1]">
+                            Second Number
+                          </div>
                           <div className="flex justify-center gap-2">
-                            <div className="bg-gray-200 w-10 h-10 flex items-center justify-center rounded">
+                            <div className="bg-[#1a1a21] w-10 h-10 flex items-center justify-center rounded text-[#e0c9b1]">
                               {steps.c}
                             </div>
-                            <div className="bg-gray-200 w-10 h-10 flex items-center justify-center rounded">
+                            <div className="bg-[#1a1a21] w-10 h-10 flex items-center justify-center rounded text-[#e0c9b1]">
                               {steps.d}
                             </div>
                           </div>
@@ -569,7 +617,7 @@ export default function VedicMathTutorial() {
                           width="200"
                           height="120"
                           viewBox="0 0 200 120"
-                          className="text-gray-900"
+                          className="text-[#e0c9b1]"
                         >
                           {/* Vertical lines */}
                           <line
@@ -700,23 +748,23 @@ export default function VedicMathTutorial() {
                       </div>
 
                       <div className="text-center">
-                        <div className="text-sm mb-2">
+                        <div className="text-sm mb-2 text-[#e0c9b1]">
                           Final Result (with carries)
                         </div>
                         <div className="flex justify-center gap-2">
-                          <div className="bg-gray-300 w-10 h-10 flex items-center justify-center rounded font-bold">
+                          <div className="bg-[#1a1a21] w-10 h-10 flex items-center justify-center rounded font-bold text-[#e0c9b1]">
                             {steps.step3WithCarry}
                           </div>
-                          <div className="bg-gray-300 w-10 h-10 flex items-center justify-center rounded font-bold">
+                          <div className="bg-[#1a1a21] w-10 h-10 flex items-center justify-center rounded font-bold text-[#e0c9b1]">
                             {steps.step2Units}
                           </div>
-                          <div className="bg-gray-300 w-10 h-10 flex items-center justify-center rounded font-bold">
+                          <div className="bg-[#1a1a21] w-10 h-10 flex items-center justify-center rounded font-bold text-[#e0c9b1]">
                             {steps.step1Units}
                           </div>
-                          <div className="text-xl font-bold flex items-center ml-2">
+                          <div className="text-xl font-bold flex items-center ml-2 text-[#e0c9b1]">
                             =
                           </div>
-                          <div className="bg-gray-400 px-3 h-10 flex items-center justify-center rounded font-bold">
+                          <div className="bg-[#1a1a21] px-3 h-10 flex items-center justify-center rounded font-bold text-[#e0c9b1]">
                             {steps.result}
                           </div>
                         </div>
@@ -730,10 +778,12 @@ export default function VedicMathTutorial() {
 
           <TabsContent value="practice" className="mt-6">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <Card className="col-span-1 lg:col-span-2 bg-[#ffffff] border-gray-300">
+              <Card className="col-span-1 lg:col-span-2 bg-[#e0c9b1] border-[#0f0f12]">
                 <CardHeader>
-                  <CardTitle>Practice Your Skills</CardTitle>
-                  <CardDescription className="text-gray-700">
+                  <CardTitle className="text-[#0f0f12]">
+                    Practice Your Skills
+                  </CardTitle>
+                  <CardDescription className="text-[#0f0f12]/70">
                     Try multiplying these two-digit numbers using the Vedic
                     method
                   </CardDescription>
@@ -741,11 +791,11 @@ export default function VedicMathTutorial() {
                 <CardContent>
                   <div className="flex flex-col items-center">
                     <div className="flex justify-center items-center gap-4 text-3xl font-bold mb-6">
-                      <span className="bg-gray-100 p-3 rounded-lg">
+                      <span className="bg-[#0f0f12]/10 p-3 rounded-lg text-[#0f0f12]">
                         {firstNumber}
                       </span>
-                      <span>×</span>
-                      <span className="bg-gray-100 p-3 rounded-lg">
+                      <span className="text-[#0f0f12]">×</span>
+                      <span className="bg-[#0f0f12]/10 p-3 rounded-lg text-[#0f0f12]">
                         {secondNumber}
                       </span>
                     </div>
@@ -753,7 +803,7 @@ export default function VedicMathTutorial() {
                     <div className="w-full max-w-xs mb-6">
                       <label
                         htmlFor="answer"
-                        className="block text-sm font-medium mb-2"
+                        className="block text-sm font-medium mb-2 text-[#0f0f12]"
                       >
                         Your Answer
                       </label>
@@ -763,7 +813,7 @@ export default function VedicMathTutorial() {
                           id="answer"
                           value={userAnswer}
                           onChange={(e) => setUserAnswer(e.target.value)}
-                          className="w-full bg-white border border-gray-300 rounded-md px-3 py-2 text-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-400"
+                          className="w-full bg-[#0f0f12] border border-[#e0c9b1]/20 rounded-md px-3 py-2 text-[#e0c9b1] focus:outline-none focus:ring-2 focus:ring-[#e0c9b1]/30"
                           placeholder="Enter your answer"
                           disabled={showAnswer}
                         />
@@ -771,7 +821,7 @@ export default function VedicMathTutorial() {
                           <Button
                             onClick={checkAnswer}
                             disabled={!userAnswer}
-                            className="bg-gray-200 text-gray-900 hover:bg-gray-300"
+                            className="bg-[#0f0f12] text-[#e0c9b1] hover:bg-[#0f0f12]/90"
                           >
                             Check
                           </Button>
@@ -811,7 +861,7 @@ export default function VedicMathTutorial() {
 
                         <Button
                           onClick={nextPractice}
-                          className="w-full mt-2 bg-gray-200 text-gray-900 hover:bg-gray-300"
+                          className="w-full mt-2 bg-[#0f0f12] text-[#e0c9b1] hover:bg-[#0f0f12]/90"
                         >
                           Next Problem <ArrowRight className="ml-1 h-4 w-4" />
                         </Button>
@@ -822,16 +872,18 @@ export default function VedicMathTutorial() {
                       <Button
                         variant="outline"
                         onClick={() => setShowHint(!showHint)}
-                        className="mb-4 border-gray-300 text-gray-900 hover:bg-gray-200"
+                        className="mb-4 border-[#0f0f12] text-[#0f0f12] hover:bg-[#0f0f12]/10"
                       >
                         {showHint ? "Hide Hint" : "Show Hint"}
                       </Button>
                     )}
 
                     {showHint && !showAnswer && (
-                      <div className="w-full max-w-md bg-gray-100 p-4 rounded-lg mb-6">
-                        <h4 className="font-medium mb-2">Hint:</h4>
-                        <ol className="list-decimal list-inside space-y-2 text-sm">
+                      <div className="w-full max-w-md bg-[#0f0f12] p-4 rounded-lg mb-6">
+                        <h4 className="font-medium mb-2 text-[#e0c9b1]">
+                          Hint:
+                        </h4>
+                        <ol className="list-decimal list-inside space-y-2 text-sm text-[#e0c9b1]">
                           <li>
                             Break down {firstNumber} into{" "}
                             {Math.floor(firstNumber / 10)} and{" "}
@@ -864,16 +916,18 @@ export default function VedicMathTutorial() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-[#ffffff] border-gray-300">
+              <Card className="bg-[#e0c9b1] border-[#0f0f12]">
                 <CardHeader>
-                  <CardTitle>Your Progress</CardTitle>
-                  <CardDescription className="text-gray-700">
+                  <CardTitle className="text-[#0f0f12]">
+                    Your Progress
+                  </CardTitle>
+                  <CardDescription className="text-[#0f0f12]/70">
                     Track your learning journey
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <div className="space-y-2">
-                    <div className="flex justify-between text-sm">
+                    <div className="flex justify-between text-sm text-[#0f0f12]">
                       <span>Correct Answers</span>
                       <span className="font-medium">
                         {practiceScore}/{practiceTotal}
@@ -885,24 +939,24 @@ export default function VedicMathTutorial() {
                           ? (practiceScore / practiceTotal) * 100
                           : 0
                       }
-                      className="h-2 bg-gray-200"
+                      className="h-2 bg-[#0f0f12]/10"
                     />
                   </div>
 
                   <div className="grid grid-cols-1 gap-4">
-                    <div className="flex items-center gap-3 p-3 bg-gray-100 rounded-lg">
-                      <div className="bg-gray-200 p-2 rounded-full">
-                        <Brain className="h-5 w-5" />
+                    <div className="flex items-center gap-3 p-3 bg-[#0f0f12] rounded-lg">
+                      <div className="bg-[#1a1a21] p-2 rounded-full">
+                        <Brain className="h-5 w-5 text-[#e0c9b1]" />
                       </div>
                       <div>
-                        <div className="text-sm font-medium">
+                        <div className="text-sm font-medium text-[#e0c9b1]">
                           Learning Progress
                         </div>
-                        <div className="text-xs text-gray-700">
+                        <div className="text-xs text-[#e0c9b1]/70">
                           Technique mastery
                         </div>
                       </div>
-                      <div className="ml-auto font-medium">
+                      <div className="ml-auto font-medium text-[#e0c9b1]">
                         {practiceTotal >= 10
                           ? "Advanced"
                           : practiceTotal >= 5
@@ -911,32 +965,36 @@ export default function VedicMathTutorial() {
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3 p-3 bg-gray-100 rounded-lg">
-                      <div className="bg-gray-200 p-2 rounded-full">
-                        <Calculator className="h-5 w-5" />
+                    <div className="flex items-center gap-3 p-3 bg-[#0f0f12] rounded-lg">
+                      <div className="bg-[#1a1a21] p-2 rounded-full">
+                        <Calculator className="h-5 w-5 text-[#e0c9b1]" />
                       </div>
                       <div>
-                        <div className="text-sm font-medium">
+                        <div className="text-sm font-medium text-[#e0c9b1]">
                           Problems Solved
                         </div>
-                        <div className="text-xs text-gray-700">
+                        <div className="text-xs text-[#e0c9b1]/70">
                           Total attempts
                         </div>
                       </div>
-                      <div className="ml-auto font-medium">{practiceTotal}</div>
+                      <div className="ml-auto font-medium text-[#e0c9b1]">
+                        {practiceTotal}
+                      </div>
                     </div>
 
-                    <div className="flex items-center gap-3 p-3 bg-gray-100 rounded-lg">
-                      <div className="bg-gray-200 p-2 rounded-full">
-                        <Trophy className="h-5 w-5" />
+                    <div className="flex items-center gap-3 p-3 bg-[#0f0f12] rounded-lg">
+                      <div className="bg-[#1a1a21] p-2 rounded-full">
+                        <Trophy className="h-5 w-5 text-[#e0c9b1]" />
                       </div>
                       <div>
-                        <div className="text-sm font-medium">Accuracy Rate</div>
-                        <div className="text-xs text-gray-700">
+                        <div className="text-sm font-medium text-[#e0c9b1]">
+                          Accuracy Rate
+                        </div>
+                        <div className="text-xs text-[#e0c9b1]/70">
                           Correct answers
                         </div>
                       </div>
-                      <div className="ml-auto font-medium">
+                      <div className="ml-auto font-medium text-[#e0c9b1]">
                         {practiceTotal > 0
                           ? `${Math.round(
                               (practiceScore / practiceTotal) * 100
