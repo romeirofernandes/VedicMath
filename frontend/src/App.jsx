@@ -9,6 +9,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Landing from "./pages/Landing";
 import Game from "./pages/Game";
 import Leaderboard from "./pages/Leaderboard";
+import VedicMathTutorial from "./pages/Vedic_Maths_Multi";
 
 const App = () => {
   return (
@@ -44,6 +45,7 @@ const App = () => {
                 </ProtectedRoute>
               }
             />
+            <Route path="/multi" element={<VedicMathTutorial />} />
           </Routes>
         </AuthProvider>
       </Router>
