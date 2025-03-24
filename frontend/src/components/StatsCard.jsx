@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "framer-motion";
 
 const StatsCard = ({ icon, title, value }) => {
@@ -20,4 +20,4 @@ const StatsCard = ({ icon, title, value }) => {
   );
 };
 
-export default StatsCard;
+export default memo(StatsCard);

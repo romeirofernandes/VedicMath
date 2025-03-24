@@ -78,12 +78,6 @@ export default function SignIn() {
                 >
                   Password
                 </label>
-                <Link
-                  to="/forgot-password"
-                  className="text-[#e0c9b1]/70 text-sm hover:text-[#e0c9b1] transition-colors"
-                >
-                  Forgot password?
-                </Link>
               </div>
               <input
                 id="password"

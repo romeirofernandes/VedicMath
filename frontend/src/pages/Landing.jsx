@@ -6,25 +6,11 @@ import Testimonial from "../components/Testimonial";
 import Footer from "../components/Footer";
 
 export default function Landing() {
-  const container = {
+  const fadeIn = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
-      },
+      transition: { duration: 0.5 },
     },
   };
 
@@ -34,42 +20,31 @@ export default function Landing() {
 
       <section className="pt-32 pb-20 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
+          {/* Main content with simpler animation */}
           <motion.div
-            variants={container}
             initial="hidden"
             animate="show"
+            variants={fadeIn}
             className="flex flex-col items-center text-center space-y-6"
           >
-            <motion.span
-              variants={item}
-              className="px-4 py-1.5 bg-[#2a2a35] rounded-full text-sm font-medium"
-            >
+            <span className="px-4 py-1.5 bg-[#2a2a35] rounded-full text-sm font-medium">
               Ancient Wisdom, Modern Approach
-            </motion.span>
+            </span>
 
-            <motion.h1
-              variants={item}
-              className="font-bricolage font-bold text-4xl md:text-5xl lg:text-6xl max-w-5xl bg-gradient-to-r from-[#e0c9b1] to-[#d4b595] bg-clip-text text-transparent"
-            >
+            <h1 className="font-bricolage font-bold text-4xl md:text-5xl lg:text-6xl max-w-5xl bg-gradient-to-r from-[#e0c9b1] to-[#d4b595] bg-clip-text text-transparent">
               Math with Vedic Techniques
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              variants={item}
-              className="font-inter text-lg md:text-xl max-w-2xl text-[#e0c9b1]/80"
-            >
+            <p className="font-inter text-lg md:text-xl max-w-2xl text-[#e0c9b1]/80">
               Learn the ancient mathematical system that enables lightning-fast
               calculations, enhances mental agility, and provides a deeper
               understanding of numbers.
-            </motion.p>
+            </p>
 
-            <motion.div
-              variants={item}
-              className="flex flex-col md:flex-row gap-4 pt-4"
-            >
+            <div className="flex flex-col md:flex-row gap-4 pt-4">
               <Link to="/signin">
                 <motion.button
-                  whileHover={{ scale: 1.05 }}
+                  whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   className="px-8 py-3 bg-[#e0c9b1] text-[#0f0f12] rounded-md font-inter font-bold hover:bg-[#d4b595] transition-colors duration-300"
                 >
@@ -78,7 +53,7 @@ export default function Landing() {
               </Link>
 
               <motion.button
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="px-8 py-3 border border-[#e0c9b1]/30 text-[#e0c9b1] rounded-md font-inter font-medium hover:border-[#e0c9b1] transition-all duration-300"
                 onClick={() => {
@@ -91,7 +66,7 @@ export default function Landing() {
               >
                 View Testimonials
               </motion.button>
-            </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
