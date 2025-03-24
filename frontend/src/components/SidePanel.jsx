@@ -1,18 +1,17 @@
 import React from "react";
 import {
-  IconBook2,
   IconChartBar,
   IconHome,
+  IconX,
   IconLock,
   IconLogout,
   IconMathSymbols,
-  IconTrophy,
 } from "@tabler/icons-react";
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 
-const SidePanel = () => {
+const SidePanel = ({ isOpen = true, togglePanel }) => {
   const { user, signOut } = useAuth();
   const [loading, setLoading] = useState(true);
 
@@ -81,10 +80,27 @@ const SidePanel = () => {
 
   return (
     <>
-      <div className="fixed left-0 top-0 bottom-0 w-64 bg-[#0a0a10] border-r border-[#2a2a35] overflow-hidden flex flex-col">
+      <div
+        className={`fixed left-0 top-0 bottom-0 w-64 bg-[#0a0a10] border-r border-[#2a2a35] 
+        overflow-hidden flex flex-col transition-transform duration-300 ease-in-out z-30
+        ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
+      >
         <div className="p-5 flex-1">
-          <div className="font-bricolage font-bold text-2xl bg-gradient-to-r from-[#e0c9b1] to-[#d4b595] bg-clip-text text-transparent mb-6">
-            VedicMath
+          <div className="flex justify-between items-center mb-6">
+            <div className="font-bricolage font-bold text-2xl bg-gradient-to-r from-[#e0c9b1] to-[#d4b595] bg-clip-text text-transparent">
+              VedicMath
+            </div>
+
+            {/* Add close button */}
+            {togglePanel && (
+              <button
+                onClick={togglePanel}
+                className="text-[#e0c9b1]/70 hover:text-[#e0c9b1]"
+                aria-label="Close panel"
+              >
+                <IconX size={20} />
+              </button>
+            )}
           </div>
 
           <nav className="space-y-1">

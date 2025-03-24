@@ -2,13 +2,19 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Confetti from "react-confetti";
-import { IconArrowLeft, IconCheck, IconX } from "@tabler/icons-react";
+import { IconCheck, IconX, IconMenu2 } from "@tabler/icons-react";
 import VedicAdditionAnimation from "../../components/VedicAdditionAnimation";
+import SidePanel from "../../components/SidePanel";
 
 const Lesson1 = () => {
   const [currentStep, setCurrentStep] = useState(0);
   const [userAnswers, setUserAnswers] = useState({});
   const [showConfetti, setShowConfetti] = useState(false);
+  const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
+
+  const toggleSidePanel = () => {
+    setIsSidePanelOpen(!isSidePanelOpen);
+  };
 
   const practiceProblems = [
     {
@@ -37,7 +43,6 @@ const Lesson1 = () => {
     },
   ];
 
-  // Simplified fade variant - only one we'll use
   const fadeIn = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 0.3 } },
@@ -55,7 +60,6 @@ const Lesson1 = () => {
       },
     });
 
-    // Check if all answers are correct after this submission
     const updatedAnswers = {
       ...userAnswers,
       [problemId]: { selected: selectedAnswer, isCorrect },
@@ -108,7 +112,6 @@ const Lesson1 = () => {
       </button>
     </div>,
 
-    // Method Explanation
     <div key="method" className="space-y-6">
       <h2 className="font-bricolage font-bold text-2xl md:text-3xl text-[#e0c9b1]">
         The Method
@@ -215,7 +218,6 @@ const Lesson1 = () => {
       </div>
     </div>,
 
-    // Practice Problems - minimal animations
     <motion.div
       key="practice"
       className="space-y-6"
@@ -288,7 +290,6 @@ const Lesson1 = () => {
         ))}
       </div>
 
-      {/* Check if all answers are correct */}
       {Object.keys(userAnswers).length === practiceProblems.length &&
         practiceProblems.every((p) => userAnswers[p.id]?.isCorrect) && (
           <div className="bg-[#2a2a35]/60 border border-[#ffffff10] rounded-xl p-6 text-center">
@@ -323,29 +324,37 @@ const Lesson1 = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f12] to-[#1a1a21] text-[#e0c9b1] font-inter">
-      <div className="container mx-auto px-6 py-12 max-w-4xl">
-        <Link
-          to="/dashboard"
-          className="inline-flex items-center text-[#e0c9b1]/80 hover:text-[#e0c9b1] mb-8"
-        >
-          <IconArrowLeft size={18} className="mr-1" />
-          Back to Dashboard
-        </Link>
+      <SidePanel isOpen={isSidePanelOpen} togglePanel={toggleSidePanel} />
 
-        {lessonSteps[currentStep]}
+      <button
+        onClick={toggleSidePanel}
+        className="fixed top-6 left-6 z-20 p-2 rounded-md bg-[#2a2a35]/60 hover:bg-[#2a2a35] text-[#e0c9b1]"
+        aria-label="Toggle navigation"
+      >
+        <IconMenu2 size={24} />
+      </button>
 
-        <div className="mt-12 flex justify-center">
-          <div className="flex space-x-2">
-            {lessonSteps.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentStep(index)}
-                className={`w-3 h-3 rounded-full transition-all ${
-                  currentStep === index ? "bg-[#e0c9b1]" : "bg-[#e0c9b1]/30"
-                }`}
-                aria-label={`Go to step ${index + 1}`}
-              />
-            ))}
+      <div
+        className={`transition-all duration-300 ${
+          isSidePanelOpen ? "ml-64" : "ml-0"
+        }`}
+      >
+        <div className="container mx-auto px-6 py-12 max-w-4xl">
+          {lessonSteps[currentStep]}
+
+          <div className="mt-12 flex justify-center">
+            <div className="flex space-x-2">
+              {lessonSteps.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentStep(index)}
+                  className={`w-3 h-3 rounded-full transition-all ${
+                    currentStep === index ? "bg-[#e0c9b1]" : "bg-[#e0c9b1]/30"
+                  }`}
+                  aria-label={`Go to step ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

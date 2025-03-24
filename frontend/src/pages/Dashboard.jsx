@@ -2,9 +2,15 @@ import React, { useState } from "react";
 import DashNav from "../components/DashNav";
 import SidePanel from "../components/SidePanel";
 import LessonItem from "../components/LessonItem";
+import { IconMenu2 } from "@tabler/icons-react";
 
 const Dashboard = () => {
   const [loading, setLoading] = useState(true);
+  const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
+
+  const toggleSidePanel = () => {
+    setIsSidePanelOpen(!isSidePanelOpen);
+  };
 
   const lessons = [
     {
@@ -50,11 +56,31 @@ const Dashboard = () => {
 
   return (
     <div className="fixed inset-0 bg-gradient-to-br from-[#0f0f12] to-[#1a1a21] text-[#e0c9b1] font-inter overflow-hidden">
-      <SidePanel />
+      <SidePanel isOpen={isSidePanelOpen} togglePanel={toggleSidePanel} />
 
-      <div className="ml-64 relative z-0 h-screen overflow-y-auto custom-scrollbar">
-        <div className="p-8 min-h-screen">
-          <DashNav />
+      {!isSidePanelOpen && (
+        <button
+          onClick={toggleSidePanel}
+          className="fixed top-6 left-6 z-20 p-2 rounded-md bg-[#2a2a35]/60 hover:bg-[#2a2a35] text-[#e0c9b1]"
+          aria-label="Toggle navigation"
+        >
+          <IconMenu2 size={24} />
+        </button>
+      )}
+
+      <div
+        className={`
+          transition-all duration-300 relative z-0 h-screen overflow-y-auto custom-scrollbar
+          ${isSidePanelOpen ? "ml-64" : "ml-0 flex justify-center"}
+        `}
+      >
+        <div
+          className={`
+          p-8 min-h-screen
+          ${isSidePanelOpen ? "w-full" : "max-w-4xl w-full"}
+        `}
+        >
+          <DashNav toggleSidePanel={toggleSidePanel} />
 
           <div className="mb-10">
             <h2 className="font-bricolage font-semibold text-2xl mb-6">
