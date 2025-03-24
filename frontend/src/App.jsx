@@ -9,6 +9,7 @@ const SignUp = lazy(() => import("./pages/SignUp"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Game = lazy(() => import("./pages/Game"));
 const Leaderboard = lazy(() => import("./pages/Leaderboard"));
+const Lesson1 = lazy(() => import("./pages/lessons/Lesson1"));
 
 const App = () => {
   return (
@@ -47,6 +48,14 @@ const App = () => {
                 element={
                   <ProtectedRoute>
                     <Leaderboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/lesson/1"
+                element={
+                  <ProtectedRoute>
+                    <Lesson1 />
                   </ProtectedRoute>
                 }
               />

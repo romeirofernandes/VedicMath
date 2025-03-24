@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { IconBrain, IconCalculator, IconTrophy } from "@tabler/icons-react";
-import StatsCard from "../components/StatsCard";
 import DashNav from "../components/DashNav";
 import SidePanel from "../components/SidePanel";
 import LessonItem from "../components/LessonItem";
@@ -80,32 +78,10 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <StatsCard
-              icon={<IconBrain className="text-[#e0c9b1]" />}
-              title="Progress"
-              value={`${Math.round(
-                (getCurrentProgress() / lessons.length) * 100
-              )}%`}
-            />
-            <StatsCard
-              icon={<IconCalculator className="text-[#e0c9b1]" />}
-              title="Exercises"
-              value="23 Completed"
-            />
-            <StatsCard
-              icon={<IconTrophy className="text-[#e0c9b1]" />}
-              title="Achievements"
-              value="3 Unlocked"
-            />
-          </div>
         </div>
       </div>
     </div>
   );
 };
-
-<StatsCard icon title value />;
 
 export default Dashboard;

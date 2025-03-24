@@ -13,7 +13,6 @@ import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
 
 const SidePanel = () => {
-  
   const { user, signOut } = useAuth();
   const [loading, setLoading] = useState(true);
 
@@ -82,35 +81,9 @@ const SidePanel = () => {
 
   return (
     <>
-      <style jsx global>{`
-        /* Custom scrollbar for webkit browsers */
-        ::-webkit-scrollbar {
-          width: 6px;
-        }
-
-        ::-webkit-scrollbar-track {
-          background: rgba(42, 42, 53, 0.2);
-          border-radius: 3px;
-        }
-
-        ::-webkit-scrollbar-thumb {
-          background-color: rgba(224, 201, 177, 0.3);
-          border-radius: 3px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-          background-color: rgba(224, 201, 177, 0.5);
-        }
-
-        /* Firefox scrollbar styles */
-        * {
-          scrollbar-width: thin;
-          scrollbar-color: rgba(224, 201, 177, 0.3) rgba(42, 42, 53, 0.2);
-        }
-      `}</style>
       <div className="fixed left-0 top-0 bottom-0 w-64 bg-[#0a0a10] border-r border-[#2a2a35] overflow-hidden flex flex-col">
-        <div className="p-5 flex-1 overflow-y-auto custom-scrollbar">
-          <div className="font-bricolage font-bold text-2xl bg-gradient-to-r from-[#e0c9b1] to-[#d4b595] bg-clip-text text-transparent mb-8">
+        <div className="p-5 flex-1">
+          <div className="font-bricolage font-bold text-2xl bg-gradient-to-r from-[#e0c9b1] to-[#d4b595] bg-clip-text text-transparent mb-6">
             VedicMath
           </div>
 
@@ -122,23 +95,13 @@ const SidePanel = () => {
               active
             />
             <NavItem
-              icon={<IconBook2 size={20} />}
-              text="My Learning"
-              path="/learning"
-            />
-            <NavItem
               icon={<IconChartBar size={20} />}
               text="Progress"
               path="/progress"
             />
-            <NavItem
-              icon={<IconTrophy size={20} />}
-              text="Achievements"
-              path="/achievements"
-            />
           </nav>
 
-          <div className="my-8 border-t border-[#2a2a35]"></div>
+          <div className="my-4 border-t border-[#2a2a35]"></div>
 
           <div className="mb-2 text-sm font-medium text-[#e0c9b1]/70">
             Vedic Techniques
