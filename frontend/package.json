@@ -12,6 +12,7 @@
   "dependencies": {
     "@fontsource/bricolage-grotesque": "^5.0.16",
     "@fontsource/inter": "^5.0.16",
+    "@google/generative-ai": "^0.24.0",
     "@supabase/supabase-js": "^2.39.3",
     "@tabler/icons-react": "^2.47.0",
     "framer-motion": "^11.0.3",
@@ -20,7 +21,9 @@
     "react": "^18.2.0",
     "react-confetti": "^6.1.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.0"
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^6.22.0",
+    "react-syntax-highlighter": "^15.6.1"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.0.16",

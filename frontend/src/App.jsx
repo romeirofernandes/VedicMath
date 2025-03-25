@@ -11,6 +11,7 @@ const SignUp = lazy(() => import("./pages/SignUp"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Game = lazy(() => import("./pages/Game"));
 const Leaderboard = lazy(() => import("./pages/Leaderboard"));
+const VedicAIAssistant = lazy(() => import("./pages/VedicAIAssistant"));
 const Lesson1 = lazy(() => import("./pages/lessons/Lesson1"));
 const Lesson2 = lazy(() => import("./pages/lessons/Lesson2"));
 const Lesson3 = lazy(() => import("./pages/lessons/Lesson3"));
@@ -91,6 +92,14 @@ const router = createBrowserRouter(
       element: (
         <ProtectedRoute>
           <Certificate />
+        </ProtectedRoute>
+      ),
+    },
+    {
+      path: "/vedic-ai",
+      element: (
+        <ProtectedRoute>
+          <VedicAIAssistant />
         </ProtectedRoute>
       ),
     },
