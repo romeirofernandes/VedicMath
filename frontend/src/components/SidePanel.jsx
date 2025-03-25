@@ -10,10 +10,28 @@ import {
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { getUserProgress } from "../utils/ProgressUtils";
 
 const SidePanel = ({ isOpen = true, togglePanel }) => {
   const { user, signOut } = useAuth();
+  const [userProgress, setUserProgress] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchProgress = async () => {
+      const progress = await getUserProgress();
+      setUserProgress(progress);
+      setLoading(false);
+    };
+
+    fetchProgress();
+  }, []);
+
+  const isLessonUnlocked = (lessonId) => {
+    if (loading) return lessonId === 1;
+    return lessonId <= (userProgress?.current_lesson || 1);
+  };
 
   const NavItem = ({ icon, text, path, active = false, locked = false }) => {
     return (
@@ -68,15 +86,6 @@ const SidePanel = ({ isOpen = true, togglePanel }) => {
       path: "/lesson/5",
     },
   ];
-
-  const isLessonUnlocked = (lessonId) => {
-    return lessonId <= getCurrentProgress();
-  };
-
-  const getCurrentProgress = () => {
-    if (loading) return 1;
-    return profile?.progress || 1;
-  };
 
   return (
     <>

@@ -1,82 +1,59 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import {
-  IconChevronRight,
-  IconLock,
-  IconMathSymbols,
-} from "@tabler/icons-react";
+import { IconCheck } from "@tabler/icons-react";
 
-const LessonItem = ({ lesson, unlocked, current, isFirst, isLast }) => {
+const LessonItem = ({
+  lesson,
+  unlocked,
+  current,
+  completed,
+  isFirst,
+  isLast,
+}) => {
   return (
-    <>
-      <div className="flex">
+    <div className="flex items-start">
+      <div className="relative flex flex-col items-center mr-4">
         <div
-          className={`relative flex items-center justify-center w-12 h-12 rounded-full mr-5 ${
-            unlocked
-              ? current
-                ? "bg-[#e0c9b1]"
-                : "bg-[#2a2a35]"
-              : "bg-[#2a2a35]/50"
+          className={`w-12 h-12 rounded-full flex items-center justify-center z-10 ${
+            completed
+              ? "bg-green-500 text-white"
+              : current
+              ? "bg-[#e0c9b1] text-[#1a1a21]"
+              : unlocked
+              ? "bg-[#e0c9b1]/40 text-[#e0c9b1]"
+              : "bg-[#e0c9b1]/10 text-[#e0c9b1]/30"
           }`}
         >
-          {unlocked ? (
-            <IconMathSymbols
-              size={20}
-              className={current ? "text-[#0f0f12]" : "text-[#e0c9b1]"}
-            />
-          ) : (
-            <IconLock size={20} className="text-[#e0c9b1]/40" />
-          )}
-        </div>
-
-        <div className="flex-1">
-          <div
-            className={`p-5 rounded-xl ${
-              current
-                ? "bg-[#2a2a35] border border-[#e0c9b1]/30"
-                : "bg-[#1e1e23]/40"
-            }`}
-          >
-            <div className="flex justify-between items-center mb-2">
-              <h3
-                className={`font-bricolage font-semibold text-lg ${
-                  unlocked ? "text-[#e0c9b1]" : "text-[#e0c9b1]/50"
-                }`}
-              >
-                {lesson.title}
-              </h3>
-              {unlocked && (
-                <span className="text-xs uppercase font-medium px-2 py-1 rounded-full bg-[#e0c9b1]/10 text-[#e0c9b1]/80">
-                  {current ? "Current" : "Completed"}
-                </span>
-              )}
-            </div>
-
-            <p
-              className={`text-sm mb-4 ${
-                unlocked ? "text-[#e0c9b1]/70" : "text-[#e0c9b1]/30"
-              }`}
-            >
-              {lesson.description}
-            </p>
-
-            {unlocked && (
-              <Link to={lesson.path}>
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="flex items-center text-sm font-medium text-[#e0c9b1] hover:text-[#e0c9b1]/80"
-                >
-                  {current ? "Start Lesson" : "Review Lesson"}
-                  <IconChevronRight size={16} className="ml-1" />
-                </motion.button>
-              </Link>
-            )}
-          </div>
+          {completed ? <IconCheck size={20} /> : lesson.id}
         </div>
       </div>
-    </>
+
+      <div
+        className={`flex-1 bg-[#1e1e25] p-5 rounded-lg ${
+          !unlocked && "opacity-60"
+        }`}
+      >
+        <Link
+          to={unlocked ? lesson.path : "#"}
+          className={`block ${!unlocked && "pointer-events-none"}`}
+        >
+          <h3 className="font-bricolage font-medium text-xl mb-1 flex items-center">
+            {lesson.title}
+            {completed && (
+              <span className="ml-2 text-green-500 text-sm font-normal">
+                Completed
+              </span>
+            )}
+            {current && !completed && (
+              <span className="ml-2 text-yellow-400 text-sm font-normal">
+                In Progress
+              </span>
+            )}
+          </h3>
+          <p className="text-[#e0c9b1]/70">{lesson.description}</p>
+        </Link>
+      </div>
+    </div>
   );
 };
 

@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { completeLesson, getUserProgress } from "../../utils/ProgressUtils";
+import { useProgress } from "../../context/ProgressContext";
 import { motion } from "framer-motion";
 import Confetti from "react-confetti";
 import { IconCheck, IconX, IconMenu2 } from "@tabler/icons-react";
@@ -7,10 +9,59 @@ import VedicAdditionAnimation from "../../components/VedicAdditionAnimation";
 import SidePanel from "../../components/SidePanel";
 
 const Lesson1 = () => {
+  const { userProgress, refreshProgress } = useProgress();
   const [currentStep, setCurrentStep] = useState(0);
   const [userAnswers, setUserAnswers] = useState({});
   const [showConfetti, setShowConfetti] = useState(false);
   const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
+  const [isLessonCompleted, setIsLessonCompleted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (userProgress?.completed_lessons?.includes(1)) {
+      setIsLessonCompleted(true);
+    }
+  }, [userProgress]);
+
+  const handleNextLesson = async () => {
+    // Only attempt to complete the lesson if it's not already completed
+    if (!isLessonCompleted) {
+      setIsSubmitting(true);
+      try {
+        // Check if all problems have been answered correctly
+        const allAnswered = practiceProblems.every((p) => userAnswers[p.id]);
+        const allCorrect = practiceProblems.every(
+          (p) => userAnswers[p.id]?.isCorrect
+        );
+
+        if (allAnswered && allCorrect) {
+          const updatedProgress = await completeLesson(1);
+
+          if (updatedProgress) {
+            setIsLessonCompleted(true);
+            setShowConfetti(true);
+            setTimeout(() => setShowConfetti(false), 3000);
+            // Make sure to await the refresh to ensure state is updated
+            await refreshProgress();
+          }
+          // Navigate to next lesson
+          navigate("/lesson/2");
+        } else {
+          alert(
+            "Please answer all practice questions correctly before continuing."
+          );
+        }
+      } catch (error) {
+        console.error("Error in handleNextLesson:", error);
+      } finally {
+        setIsSubmitting(false);
+      }
+    } else {
+      // If already completed, just navigate
+      navigate("/lesson/2");
+    }
+  };
 
   const toggleSidePanel = () => {
     setIsSidePanelOpen(!isSidePanelOpen);
@@ -228,11 +279,9 @@ const Lesson1 = () => {
       <h2 className="font-bricolage font-bold text-2xl md:text-3xl text-[#e0c9b1]">
         Practice Problems
       </h2>
-
       <p className="text-[#e0c9b1]/80">
         Try these problems using the Vedic complementary number method:
       </p>
-
       <div className="space-y-8">
         {practiceProblems.map((problem) => (
           <div
@@ -289,7 +338,6 @@ const Lesson1 = () => {
           </div>
         ))}
       </div>
-
       {Object.keys(userAnswers).length === practiceProblems.length &&
         practiceProblems.every((p) => userAnswers[p.id]?.isCorrect) && (
           <div className="bg-[#2a2a35]/60 border border-[#ffffff10] rounded-xl p-6 text-center">
@@ -300,30 +348,30 @@ const Lesson1 = () => {
               You've mastered the Vedic complementary number technique for
               addition.
             </p>
-            <Link
-              to="/dashboard"
-              className="mt-4 inline-block px-6 py-2.5 bg-[#e0c9b1] text-[#0f0f12] rounded-md font-medium hover:bg-[#d4b595] transition-colors"
-            >
-              Return to Dashboard
-            </Link>
+
+            <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
+              {isLessonCompleted ? (
+                <div className="px-6 py-2.5 border border-green-500/30 text-green-400 rounded-md font-medium bg-green-500/10">
+                  <IconCheck className="inline mr-1" size={18} /> Completed
+                </div>
+              ) : (
+                <button
+                  onClick={handleNextLesson}
+                  className="px-6 py-2.5 bg-[#e0c9b1] text-[#0f0f12] rounded-md font-medium hover:bg-[#d4b595] transition-colors"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Completing..." : "Continue to Next Lesson"}
+                </button>
+              )}
+            </div>
           </div>
         )}
-
-      <div className="flex space-x-4">
-        <button
-          onClick={() => setCurrentStep(2)}
-          className="px-6 py-2.5 border border-[#e0c9b1]/30 text-[#e0c9b1] rounded-md font-medium hover:border-[#e0c9b1] transition-all"
-        >
-          Back to Example
-        </button>
-      </div>
-
-      {showConfetti && <Confetti colors={["#e0c9b1", "#d4b595", "#ffffff"]} />}
     </motion.div>,
   ];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f12] to-[#1a1a21] text-[#e0c9b1] font-inter">
+      {showConfetti && <Confetti />}
       <SidePanel isOpen={isSidePanelOpen} togglePanel={toggleSidePanel} />
 
       <button

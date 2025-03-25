@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 
-const Testimonial = ({ autoplay = true }) => {
+const Testimonial = () => {
   const testimonials = [
     {
       quote:
@@ -43,13 +43,6 @@ const Testimonial = ({ autoplay = true }) => {
   const isActive = (index) => {
     return index === active;
   };
-
-  useEffect(() => {
-    if (autoplay) {
-      const interval = setInterval(handleNext, 8000);
-      return () => clearInterval(interval);
-    }
-  }, [autoplay]);
 
   const randomRotateY = () => {
     return Math.floor(Math.random() * 21) - 10;

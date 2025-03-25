@@ -74,7 +74,7 @@ export default function Landing() {
       <Features />
 
       <section id="testimonials-section" className="scroll-mt-13">
-        <Testimonial autoplay={true} />
+        <Testimonial />
       </section>
 
       <Footer />

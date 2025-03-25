@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DashNav from "../components/DashNav";
 import SidePanel from "../components/SidePanel";
 import LessonItem from "../components/LessonItem";
 import { IconMenu2 } from "@tabler/icons-react";
+import { getUserProgress } from "../utils/ProgressUtils";
+import ProgressBar from "../components/ProgressBar";
+import { useProgress } from "../context/ProgressContext";
 
 const Dashboard = () => {
-  const [loading, setLoading] = useState(true);
+  const { userProgress, loading, refreshProgress } = useProgress();
   const [isSidePanelOpen, setIsSidePanelOpen] = useState(false);
+
+  useEffect(() => {
+    console.log("Dashboard mounted, refreshing progress...");
+    refreshProgress();
+  }, []);
 
   const toggleSidePanel = () => {
     setIsSidePanelOpen(!isSidePanelOpen);
@@ -47,11 +55,16 @@ const Dashboard = () => {
 
   const getCurrentProgress = () => {
     if (loading) return 1;
-    return profile?.progress || 1;
+    return userProgress?.current_lesson || 1;
   };
 
   const isLessonUnlocked = (lessonId) => {
     return lessonId <= getCurrentProgress();
+  };
+
+  const isLessonCompleted = (lessonId) => {
+    if (!userProgress?.completed_lessons) return false;
+    return userProgress.completed_lessons.includes(lessonId);
   };
 
   return (
@@ -82,6 +95,10 @@ const Dashboard = () => {
         >
           <DashNav toggleSidePanel={toggleSidePanel} />
 
+          <div className="mb-8">
+            <ProgressBar />
+          </div>
+
           <div className="mb-10">
             <h2 className="font-bricolage font-semibold text-2xl mb-6">
               Your Learning Path
@@ -96,6 +113,7 @@ const Dashboard = () => {
                     key={lesson.id}
                     lesson={lesson}
                     unlocked={isLessonUnlocked(lesson.id)}
+                    completed={isLessonCompleted(lesson.id)}
                     current={lesson.id === getCurrentProgress()}
                     isFirst={index === 0}
                     isLast={index === lessons.length - 1}
