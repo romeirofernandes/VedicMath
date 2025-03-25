@@ -50,8 +50,8 @@ const Lesson5 = () => {
           setTimeout(() => setShowConfetti(false), 3000);
           await refreshProgress();
         }
-        // Navigate to dashboard as this is the final lesson
-        navigate("/dashboard");
+
+        navigate("/certificate");
       } else {
         alert(
           "Please answer all practice questions correctly before continuing."

@@ -16,6 +16,8 @@
     "@tabler/icons-react": "^3.31.0",
     "@tailwindcss/vite": "^4.0.14",
     "framer-motion": "^12.5.0",
+    "html2canvas": "^1.4.1",
+    "jspdf": "^3.0.1",
     "react": "^19.0.0",
     "react-confetti": "^6.4.0",
     "react-dom": "^19.0.0",

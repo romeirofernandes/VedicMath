@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { ProgressProvider } from "./context/ProgressContext";
-
+import Certificate from "./pages/Certificate";
 const Landing = lazy(() => import("./pages/Landing"));
 const SignIn = lazy(() => import("./pages/SignIn"));
 const SignUp = lazy(() => import("./pages/SignUp"));
@@ -94,6 +94,14 @@ const App = () => {
                   element={
                     <ProtectedRoute>
                       <Lesson5 />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/certificate"
+                  element={
+                    <ProtectedRoute>
+                      <Certificate />
                     </ProtectedRoute>
                   }
                 />
