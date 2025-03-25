@@ -14,7 +14,7 @@ const Lesson1 = lazy(() => import("./pages/lessons/Lesson1"));
 const Lesson2 = lazy(() => import("./pages/lessons/Lesson2"));
 const Lesson3 = lazy(() => import("./pages/lessons/Lesson3"));
 const Lesson4 = lazy(() => import("./pages/lessons/Lesson4"));
-// const Lesson5 = lazy(() => import("./pages/lessons/Lesson5"));
+const Lesson5 = lazy(() => import("./pages/lessons/Lesson5"));
 
 const App = () => {
   return (
@@ -89,7 +89,6 @@ const App = () => {
                     </ProtectedRoute>
                   }
                 />
-                {/*
                 <Route
                   path="/lesson/5"
                   element={
@@ -97,7 +96,7 @@ const App = () => {
                       <Lesson5 />
                     </ProtectedRoute>
                   }
-                /> */}
+                />
               </Routes>
             </Suspense>
           </ProgressProvider>
