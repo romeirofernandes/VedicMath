@@ -21,10 +21,8 @@ const Game = () => {
   const timerRef = useRef(null);
   const inputRef = useRef(null);
 
-  // Number of questions in the game
-  const totalQuestions = 10;
+  const totalQuestions = 5;
 
-  // Function to generate random math questions
   const generateQuestions = () => {
     const questionTypes = [
       generateAddition,
@@ -82,9 +80,6 @@ const Game = () => {
   };
 
   const generateMultiplication = () => {
-    // Generate numbers that work well with Vedic multiplication techniques
-    // Examples: numbers close to powers of 10, numbers ending in 5, etc.
-
     const strategies = [
       // Generate numbers close to 100 (like 98, 102, etc.)
       () => {
@@ -214,7 +209,6 @@ const Game = () => {
     }, 100);
   };
 
-  // Check the user's answer
   const checkAnswer = () => {
     if (!userAnswer.trim()) return;
 
@@ -223,13 +217,16 @@ const Game = () => {
 
     if (correct) {
       setScore((prev) => prev + 1);
+    }
 
-      // Move to next question after a short delay
-      setTimeout(() => {
+    // Always move to next question after a delay (whether correct or not)
+    setTimeout(
+      () => {
         if (currentQuestion < totalQuestions - 1) {
           setCurrentQuestion((prev) => prev + 1);
           setUserAnswer("");
           setIsCorrect(null);
+          setShowWrongAnswer(false); // Reset wrong answer display
           if (inputRef.current) {
             inputRef.current.focus();
           }
@@ -240,16 +237,11 @@ const Game = () => {
           setGameState("completed");
           saveGameResult();
         }
-      }, 500);
-    } else {
+      },
+      correct ? 500 : 1500
+    );
+    if (!correct) {
       setShowWrongAnswer(true);
-      setTimeout(() => {
-        setShowWrongAnswer(false);
-        setUserAnswer("");
-        if (inputRef.current) {
-          inputRef.current.focus();
-        }
-      }, 1500);
     }
   };
 
@@ -321,14 +313,15 @@ const Game = () => {
                   How to Play
                 </h3>
                 <ul className="space-y-2 text-[#e0c9b1]/80">
-                  <li>• You'll be presented with 10 math problems</li>
+                  <li>• You'll be presented with 5 math problems</li>
                   <li>• Use Vedic techniques to solve them quickly</li>
                   <li>• Type your answer and press Enter</li>
                   <li>
                     • Your score is based on correct answers and time taken
                   </li>
                   <li>
-                    • Try to solve all questions correctly in the shortest time!
+                    • The game will continue to the next question even if your
+                    answer is incorrect
                   </li>
                 </ul>
               </div>
@@ -404,7 +397,7 @@ const Game = () => {
 
                         {showWrongAnswer && (
                           <div className="absolute top-full mt-2 left-0 right-0 text-center text-red-400 text-sm">
-                            Incorrect. Try again!
+                            Incorrect.
                           </div>
                         )}
                       </div>

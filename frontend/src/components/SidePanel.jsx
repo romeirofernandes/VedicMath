@@ -14,7 +14,7 @@ import { useEffect } from "react";
 import { getUserProgress } from "../utils/ProgressUtils";
 
 const SidePanel = ({ isOpen = true, togglePanel }) => {
-  const { user, signOut } = useAuth();
+  const { signOut } = useAuth();
   const [userProgress, setUserProgress] = useState(null);
   const [loading, setLoading] = useState(true);
 

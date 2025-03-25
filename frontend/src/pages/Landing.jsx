@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import Features from "../components/Features";
 import Header from "../components/Header";
@@ -6,27 +5,13 @@ import Testimonial from "../components/Testimonial";
 import Footer from "../components/Footer";
 
 export default function Landing() {
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { duration: 0.5 },
-    },
-  };
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#0f0f12] to-[#1a1a21] text-[#e0c9b1] font-inter">
       <Header />
 
       <section className="pt-32 pb-20 px-6 lg:px-16">
         <div className="max-w-7xl mx-auto">
-          {/* Main content with simpler animation */}
-          <motion.div
-            initial="hidden"
-            animate="show"
-            variants={fadeIn}
-            className="flex flex-col items-center text-center space-y-6"
-          >
+          <div className="flex flex-col items-center text-center space-y-6">
             <span className="px-4 py-1.5 bg-[#2a2a35] rounded-full text-sm font-medium">
               Ancient Wisdom, Modern Approach
             </span>
@@ -43,18 +28,12 @@ export default function Landing() {
 
             <div className="flex flex-col md:flex-row gap-4 pt-4">
               <Link to="/signin">
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="px-8 py-3 bg-[#e0c9b1] text-[#0f0f12] rounded-md font-inter font-bold hover:bg-[#d4b595] transition-colors duration-300"
-                >
+                <button className="px-8 py-3 bg-[#e0c9b1] text-[#0f0f12] rounded-md font-inter font-bold hover:bg-[#d4b595] transition-colors duration-300">
                   Start Learning
-                </motion.button>
+                </button>
               </Link>
 
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              <button
                 className="px-8 py-3 border border-[#e0c9b1]/30 text-[#e0c9b1] rounded-md font-inter font-medium hover:border-[#e0c9b1] transition-all duration-300"
                 onClick={() => {
                   document
@@ -65,9 +44,9 @@ export default function Landing() {
                 }}
               >
                 View Testimonials
-              </motion.button>
+              </button>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 

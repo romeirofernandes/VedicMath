@@ -3,7 +3,6 @@ import DashNav from "../components/DashNav";
 import SidePanel from "../components/SidePanel";
 import LessonItem from "../components/LessonItem";
 import { IconMenu2 } from "@tabler/icons-react";
-import { getUserProgress } from "../utils/ProgressUtils";
 import ProgressBar from "../components/ProgressBar";
 import { useProgress } from "../context/ProgressContext";
 

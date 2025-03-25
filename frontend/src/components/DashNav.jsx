@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const DashNav = () => {
-  const { user, signOut } = useAuth();
+  const { user } = useAuth();
   const [loading, setLoading] = useState(true);
   const [profile, setProfile] = useState(null);
   useEffect(() => {
