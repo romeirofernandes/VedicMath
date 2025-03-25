@@ -1,14 +1,12 @@
 import React, { memo } from "react";
 import { useProgress } from "../context/ProgressContext";
 
-// Fix the memo syntax - incorrect parentheses
 const ProgressBar = memo(({ percentage: initialPercentage = 0 }) => {
   const { userProgress, loading } = useProgress();
   const totalLessons = 5;
 
   console.log("ProgressBar rendering with:", userProgress);
 
-  // Calculate the percentage
   let percentage = initialPercentage;
   if (!loading && userProgress?.completed_lessons) {
     percentage = Math.floor(

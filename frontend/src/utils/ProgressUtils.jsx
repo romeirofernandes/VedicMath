@@ -1,4 +1,3 @@
-// In ProgressUtils.js
 import { supabase } from "../lib/supabaseClient";
 
 export const getUserProgress = async () => {

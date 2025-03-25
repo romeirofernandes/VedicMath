@@ -11,6 +11,10 @@ const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Game = lazy(() => import("./pages/Game"));
 const Leaderboard = lazy(() => import("./pages/Leaderboard"));
 const Lesson1 = lazy(() => import("./pages/lessons/Lesson1"));
+const Lesson2 = lazy(() => import("./pages/lessons/Lesson2"));
+// const Lesson3 = lazy(() => import("./pages/lessons/Lesson3"));
+// const Lesson4 = lazy(() => import("./pages/lessons/Lesson4"));
+// const Lesson5 = lazy(() => import("./pages/lessons/Lesson5"));
 
 const App = () => {
   return (
@@ -61,6 +65,38 @@ const App = () => {
                     </ProtectedRoute>
                   }
                 />
+                <Route
+                  path="/lesson/2"
+                  element={
+                    <ProtectedRoute>
+                      <Lesson2 />
+                    </ProtectedRoute>
+                  }
+                />
+                {/* <Route
+                  path="/lesson/3"
+                  element={
+                    <ProtectedRoute>
+                      <Lesson3 />
+                    </ProtectedRoute>
+                  }
+                />
+                <Route
+                  path="/lesson/4"
+                  element={
+                    <ProtectedRoute>
+                      <Lesson4 />
+                    </ProtectedRoute>
+                  }
+                />  
+                <Route
+                  path="/lesson/5"
+                  element={
+                    <ProtectedRoute>
+                      <Lesson5 />
+                    </ProtectedRoute>
+                  }
+                /> */}
               </Routes>
             </Suspense>
           </ProgressProvider>

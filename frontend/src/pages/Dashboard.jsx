@@ -119,6 +119,7 @@ const Dashboard = () => {
                     isLast={index === lessons.length - 1}
                   />
                 ))}
+                <div className="pb-12"></div>
               </div>
             </div>
           </div>
