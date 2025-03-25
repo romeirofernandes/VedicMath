@@ -121,8 +121,8 @@ const SidePanel = ({ isOpen = true, togglePanel }) => {
             />
             <NavItem
               icon={<IconChartBar size={20} />}
-              text="Progress"
-              path="/progress"
+              text="Vedic AI"
+              path="/vedic-ai"
             />
           </nav>
 
