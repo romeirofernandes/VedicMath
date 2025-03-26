@@ -15,7 +15,7 @@ import {
 const Leaderboard = () => {
   const [scores, setScores] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [timeFilter, setTimeFilter] = useState("all"); 
+  const [timeFilter, setTimeFilter] = useState("all");
   const { user } = useAuth();
 
   useEffect(() => {
@@ -29,8 +29,8 @@ const Leaderboard = () => {
       let query = supabase
         .from("game_scores")
         .select("*")
-        .order("score", { ascending: false }) 
-        .order("time_taken", { ascending: true }); 
+        .order("score", { ascending: false })
+        .order("time_taken", { ascending: true });
 
       // Apply time filters
       if (timeFilter === "week") {
@@ -65,7 +65,7 @@ const Leaderboard = () => {
           if (b.score !== a.score) return b.score - a.score;
           return a.time_taken - b.time_taken;
         })
-        .slice(0, 100); 
+        .slice(0, 100);
 
       setScores(processedScores);
     } catch (error) {
@@ -253,7 +253,7 @@ const Leaderboard = () => {
                         </td>
                         <td className="py-4 px-4 text-center font-medium">
                           <div className="inline-flex items-center justify-center">
-                            {score.score}/10
+                            {score.score}/5
                           </div>
                         </td>
                         <td className="py-4 px-4 text-center">
